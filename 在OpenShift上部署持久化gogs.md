@@ -180,7 +180,7 @@ objects:
           - name: gogs-data
             mountPath: /data
           - name: gogs-config
-            mountPath: /opt/gogs/custom/conf
+            mountPath: /etc/gogs/conf
           readinessProbe:
               httpGet:
                 path: /
@@ -393,13 +393,6 @@ oc import-image gogs --from=txocp-registry.ccic-test.com.cn:5000/openshiftdemos/
 
 ```
 oc import-image postgresql --from=txocp-registry.ccic-test.com.cn:5000/rhscl/postgresql-95-rhel7 --confirm=true --insecure=true
-```
-
-- 修改dc配置，将gogs-config挂载路径修改为/etc/gogs/conf    fghjv    .//opt/gogs/custom/conf，不修改的话在杀死gogs容器时，再次登录gogs会提示需要重新安装。也需要注意configmap的内容。
-
-```
-- mountPath: /etc/gogs/conf
-  name: gogs-config 
 ```
 
 - 创建pv: gogs-data, gogs-postgres-data
