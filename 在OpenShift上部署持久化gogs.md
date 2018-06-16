@@ -392,7 +392,7 @@ oc import-image gogs --from=txocp-registry.ccic-test.com.cn:5000/openshiftdemos/
 ```
 
 ```
-oc import-image postgresql --from=txocp-registry.ccic-test.com.cn:5000/rhscl/postgresql-95-rhel7 --confirm=true --insecure=true
+oc import-image postgresql:9.5 --from=txocp-registry.ccic-test.com.cn:5000/rhscl/postgresql-95-rhel7 --confirm=true --insecure=true
 ```
 
 - 创建pv: gogs-data, gogs-postgres-data
